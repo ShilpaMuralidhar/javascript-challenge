@@ -5,16 +5,17 @@ console.log(data);
 // YOUR CODE HERE!
 let mainTable = d3.select("tbody");
 
-//build table
+//Function to build table
 function buildTable(data) {
-    // Clear the existing data
+    // Remove existing data
     mainTable.html("");
+    //forEach will run the main table once 
     data.forEach((rowOfTable) => {
         // Append the table row tr to the tbody
         let row = mainTable.append("tr");
-        //Object.values and for Each to iterate through values
+        //iterate the values of the object using forEach
         Object.values(rowOfTable).forEach((val) => {
-            // Append a cell to the row for each value
+            // Append the value of each cell
             let cellOfTable = row.append("td");
             cellOfTable.text(val);
         });
@@ -31,7 +32,7 @@ function handleClick() {
 
     // Check if a date was entered and filter Data using that date
     if(date) {
-        // Apply filet to th etabel data to only keep rows when datetime value matches the filter value
+        // filters to retain rows when datetime value matches the filter value
         filterData = filterData.filter((row) => row.datetime === date);
 
     }
